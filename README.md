@@ -13,6 +13,7 @@ These instructions will get you a copy of the project up and running on your loc
 * [Jquery](https://jquery.com/) - Javascript Framework.
 * [Tweenmax](https://greensock.com/) - Javascript Framework For Html 5 Animation.
 * [Photosop](http://adobe.com) - Photoshop For Create a Web Design.
+* [Gulp](http://gulpjs.com) - gulp is a toolkit for automating painful or time-consuming tasks in your development workflow, so you can stop messing around and build something..
 
 ## Versioning
 
