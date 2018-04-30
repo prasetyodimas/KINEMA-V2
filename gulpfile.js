@@ -1,5 +1,7 @@
-const gulp   = require('gulp')
-	uglify   = require('gulp-uglify');
+const gulp     = require('gulp'),
+	  sass     = require('gulp-sass'),
+	  plumber  = require('gulp-plumber'),
+	  uglify   = require('gulp-uglify');
 
 //Function Scripts task compressed !
 gulp.task('compress', function() {
@@ -11,12 +13,12 @@ gulp.task('compress', function() {
 	}
 
 	return gulp.src('frontend/js/*.js')
+	.pipe(plumber())
 	.pipe(uglify())
-	.pipe(gulp.dest('frontend/dist'))
+	.pipe(gulp.dest('frontend/dist/js'))
 	.on('error',function(){
 		console.error('Error in compress task', err.toString());
 	});
-
 });
 
 //Function Style's Compressed !
@@ -28,6 +30,7 @@ gulp.task('compres-styles', function(){
 //Function Watching JS 
 gulp.task('watch-js',function(){
 	console.log('watching files JS !!');
+	gulp.watch('dist/js');
 });
 
 //Function Watching JS 
