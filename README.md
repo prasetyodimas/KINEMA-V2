@@ -17,7 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
 ## Versioning
 
 ```
-Version : V 1.0
+Version : V 2.0
 ```
 ## Authors
 
