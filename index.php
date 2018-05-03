@@ -167,11 +167,18 @@
                     </div>
                 </footer>
             </section>
+
+            <section class="copyright">
+                <footer class="copyright text-center">
+                    <p> @copyright 2018 Kinema <p>
+                </footer>
+            </section>
+
         </div> 
     </div><!-- container fluid -->
 
     <!-- REMOVE MENU UNTIL DEVELOPMENT FINISH -->
-    <nav class="c-circle-menu hideButton js-menu" style="display: none;">
+    <nav class="c-circle-menu hideButton js-menu" style="display: none;">  
         <button class="c-circle-menu__toggle js-menu-toggle">
             <span>Toggle</span>
         </button>
@@ -180,7 +187,7 @@
             <li class="c-circle-menu__item"><a href="#" class="c-circle-menu__link"></a></li> 
             <li class="c-circle-menu__item"><a href="#" class="c-circle-menu__link"></a></li> 
             <li class="c-circle-menu__item"><a href="#" class="c-circle-menu__link"></a></li> 
-            <li class="c-circle-menu__item"><a href="#" class="c-circle-menu__link"> </a></li> 
+            <li class="c-circle-menu__item"><a href="#" class="c-circle-menu__link"></a></li> 
         </ul>
       <div class="c-circle-menu__mask js-menu-mask"></div>
     </nav>
@@ -349,5 +356,13 @@
     }
     .li-left-pusher {
         margin-left: 13em !important;
+    }
+
+    .copyright {
+        position:relative;
+        top:30px;
+        display: block;
+        width: auto;
+        height: 100%;
     }
 </style>
