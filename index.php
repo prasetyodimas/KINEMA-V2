@@ -170,7 +170,7 @@
 
             <section class="copyright">
                 <footer class="copyright text-center">
-                    <p> @copyright 2018 Kinema <p>
+                    <p> Copyright @2018 Kinema <p>
                 </footer>
             </section>
 
