@@ -58,13 +58,13 @@ $(function NiceScroll(){
     	cursorborder:"",
     	boxzoom:true,
     	scrollspeed: 100,
-      autohidemode: true, 
+      autohidemode: true,
     	mousescrollstep: 40,
     	cursorcolor: "#424242",
     	cursorwidth: "7px",
     	bouncescroll: true,
     	smoothscroll: true
-	}); 
+	});
 });
 
 // Function Loader Page
@@ -131,5 +131,4 @@ var Conclave=(function(){
 $(document).ready(function(){
   window['conclave']=Conclave;
   Conclave.init();
-})     
-
+})
