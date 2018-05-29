@@ -1,11 +1,11 @@
-const gulp     	= require('gulp'),
-	  sass    	  = require('gulp-sass'),
-	  cleanCSS    = require('gulp-clean-css');
-	  plumber  	  = require('gulp-plumber'),
-	  uglify   	  = require('gulp-uglify'),
-	  concat	    = require('gulp-concat'),
-	  pipe		    = require('gulp-pipe'),
-	  browserSync = require('browser-sync').create();
+const gulp     	  = require('gulp'),
+	    sass    	  = require('gulp-sass'),
+	    cleanCSS    = require('gulp-clean-css'),
+	    plumber  	  = require('gulp-plumber'),
+	    uglify   	  = require('gulp-uglify'),
+	    concat	    = require('gulp-concat'),
+	    pipe		    = require('gulp-pipe'),
+	    browserSync = require('browser-sync').create();
 
 //vendor task copy third party libraries from /node_modules into /vendor
 gulp.task('vendor',function(){
@@ -16,12 +16,11 @@ gulp.task('vendor',function(){
   gulp.src(['./node_modules/gsap/src/minified/**/*/',]).pipe(gulp.dest('./vendor/gsap'));
   gulp.src(['./node_modules/scrollmagic/scrollmagic/minified/**/*']).pipe(gulp.dest('./vendor/scrollmagic'));
 	gulp.src(['./node_modules/nicescroll/dist/**/*/',]).pipe(gulp.dest('./vendor/nicescroll'));
-  // gulp.src(['./node_modules/']).pipe(gulp.dest('./vendor/'));
+	gulp.src(['./node_modules/owl.carousel/dist/**/*/',]).pipe(gulp.dest('./vendor/owlcarousel'));
 });
 
-
 //Function Scripts task compressed !
-gulp.task('js:compress', function() {
+gulp.task('js:compile', function() {
 	// Console.log('task runner working todo :) !!');
 	function handleError(name){
 		return function (error){
@@ -29,13 +28,23 @@ gulp.task('js:compress', function() {
 		};
 	}
 
-	return gulp.src('frontend/js/*.js')
+	return gulp.src('frontend/asset/js/*.js')
 	.pipe(plumber())
 	.pipe(uglify())
 	.pipe(gulp.dest('frontend/dist/js'))
 	.on('error',function(){
 		console.error('Error in compress task', err.toString());
 	});
+});
+
+// Minify JS
+gulp.task('js:minify', function() {
+  pump([
+        gulp.src('./main/*.js'),
+        uglify(),
+        gulp.dest('./frontend/dist/js')
+    ],
+  );
 });
 
 //Function Compiled CSS !
@@ -51,30 +60,19 @@ gulp.task('css:compile', function(){
 // Minify CSS !
 gulp.task('css:minify', ['css:compile'], function() {
   return gulp.src([
-      './frontend/dist/css/*.css',
+      './dist/css/*.css',
       '!./frontend/dist/css/*.min.css'
     ])
     .pipe(cleanCSS())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('./dist/css'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('./frontend/dist/css'))
     .pipe(browserSync.stream());
 });
 
-
-//Function Watching JS
-gulp.task('watch-js',function(){
-	console.log('watching files JS !!');
-	gulp.watch('dist/js');
-
-
-});
-
-//Function Watching JS
-gulp.task('watch-style',function(){
-	console.log('watching files Style !!');
-});
+// CSS
+gulp.task('css', ['css:compile', 'css:minify']);
+// JS
+gulp.task('js', ['js:compile', 'js:minify']);
 
 gulp.task('browsersync',function(){
 	console.log('its works !');
@@ -87,7 +85,7 @@ gulp.task('browsersync',function(){
 });
 
 gulp.task('development',['browsersync'], function(){
-	gulp.watch('./*.php',browserSync.reload);
-  	gulp.watch('./main/*.js', ['js'], ['jshint']);
-  	// gulp.watch('./main/*.js', ['js'], ['jshint']);
+	  gulp.watch('./*.php',browserSync.reload);
+		gulp.watch('./scss/*.scss', ['css']);
+  	gulp.watch('./frontend/asset/js/*.js', ['js']);
 });
