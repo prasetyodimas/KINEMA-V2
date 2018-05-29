@@ -12,26 +12,32 @@
 <!-- Google Authorship and Publisher Markup -->
 <link rel="author" href="">
 <link rel="publisher" href="">
-<!-- CSS -->
+<!-- css -->
 <link rel="stylesheet" href="frontend/asset/theme/css/kinema.min.css">
-<link rel="stylesheet" href="frontend/asset/theme/css/bootstrap.min.css">
+<!-- Vendor -->
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="frontend/asset/fonts/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="frontend/libs/owl-carousel/css/owl.carousel.css">
 <link rel="stylesheet" href="frontend/libs/owl-carousel/css/owl.theme.css">
 <link rel="stylesheet" href="frontend/libs/owl-carousel/css/owl.transitions.css">
 <!-- JS -->
-<script src="frontend/asset/js/vendor/jquery-1.11.2.min.js"></script>
-<script src="frontend/libs/greenshock/1.18.2/TweenMax.min.js"></script>
-<script src="frontend/libs/scrollmagic/2.0.5/ScrollMagic.min.js"></script>
-<script src="frontend/libs/scrollmagic/2.0.5/plugins/animation.gsap.js"></script>
-<script src="frontend/libs/greenshock/1.18.2/plugins/ScrollToPlugin.min.js"></script>
-<script src="frontend/libs/greenshock/1.18.2/plugins/debug.addIndicators.js"></script>
-<script src="frontend/libs/loadgo/loadgo.min.js"></script>
-<script src="frontend/libs/nicescroll/jquery.nicescroll.min.js"></script>
-<script src="frontend/libs/owl-carousel/js/owl.carousel.min.js"></script>
-<script src="frontend/asset/js/bootstrap.min.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Main JS -->
 <script src="frontend/asset/js/main.js"></script>
 <script src="frontend/asset/js/fluids.js"></script>
+<!-- JS GSAP -->
+<script src="vendor/gsap/TweenMax.min.js"></script>
+<script src="vendor/gsap/plugins/ScrollToPlugin.min.js"></script>
+<!-- Plugin ScrollMagic -->
+<script src="vendor/scrollmagic/ScrollMagic.min.js"></script>
+<script src="vendor/scrollmagic/plugins/animation.gsap.min.js"></script>
+<script src="vendor/scrollmagic/plugins/debug.addIndicators.min.js"></script>
+<!-- <script src="frontend/libs/loadgo/loadgo.min.js"></script> -->
+<!-- Nicescroll -->
+<script src="vendor/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="frontend/libs/owl-carousel/js/owl.carousel.min.js"></script>
+
 <body class="kinema-visual-supply">
     <div id="loader-wrapper">
         <div id="loader"></div>
@@ -47,7 +53,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
                             <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                     width="100%" height="auto" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
+                                     width="100%" height="500" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
                                 <path fill-rule="evenodd" clip-rule="evenodd" fill="#030304" d="M448.584,290.865c0.672,0.143,0.881,0.613,0.873,1.236
                                     c-0.168,12.382-0.188,66.307-0.219,71.101c-0.008,1.341-0.584,1.898-1.906,1.765c-0.475-0.048-0.959-0.007-1.439-0.007
                                     c-90.398,0-180.797,0-271.195,0c-0.746,0.003-3.426,0.066-3.447-1.741c-0.193-16.385-0.105-67.534,0.017-69.986
@@ -544,35 +550,18 @@
                         </div>
                     </div>
                     <div class="page_content_copyright_footer">
-                        <h2 class="">© 2017 AppLand ALL RIGHT RESERVED </h2>
+                        <div class="col-sm-12 col-md-12 col-lg-8 col-lg-push-2">
+                            <p class="text-center">© 2017 <strong>kinema.co</strong> All Right Reserved</p>
+                        </div>
                     </div>
                 </footer>
             </section>
         </div>
     </div><!-- container fluid -->
-
-    <!-- REMOVE MENU UNTIL DEVELOPMENT FINISH -->
-    <nav class="c-circle-menu hideButton js-menu" style="display: none;">
-        <button class="c-circle-menu__toggle js-menu-toggle">
-            <span>Toggle</span>
-        </button>
-        <ul class="c-circle-menu__items">
-            <li class="c-circle-menu__item"><a href="#" class="c-circle-menu__link"></a></li>
-            <li class="c-circle-menu__item"><a href="#" class="c-circle-menu__link"></a></li>
-            <li class="c-circle-menu__item"><a href="#" class="c-circle-menu__link"></a></li>
-            <li class="c-circle-menu__item"><a href="#" class="c-circle-menu__link"></a></li>
-            <li class="c-circle-menu__item"><a href="#" class="c-circle-menu__link"> </a></li>
-        </ul>
-      <div class="c-circle-menu__mask js-menu-mask"></div>
-    </nav>
     </body>
 </html>
 <script type="text/javascript">
-    Conclave.auto()
-    // init config circle menus
-    var el = '.js-menu';
-    var myMenu = cssCircleMenu(el);
-    // init config responsive video bar
+    /* Video */
     fluidvids.init({
       selector: ['iframe'],
       players: ['www.youtube.com', 'player.vimeo.com']
@@ -725,10 +714,16 @@
         width: 100% !important;
         height: 100% !important;
     }
-    .about-contact__us{
-        margin-top: 3em;
-    }
-    .li-left-pusher {
-        margin-left: 13em !important;
+    /*Footer Nav*/
+    .page_content_copyright_footer {
+        background: #030304;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        font-family: 'Open Sans', sans-serif;
+        color: #fff;
+        position: absolute;
+        width: 100%;
+        top: 42em;
     }
 </style>
