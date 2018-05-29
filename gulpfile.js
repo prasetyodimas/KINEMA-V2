@@ -1,10 +1,10 @@
-const gulp     	  = require('gulp'),
+const gulp     	= require('gulp'),
 	  sass    	  = require('gulp-sass'),
 	  cleanCSS    = require('gulp-clean-css');
 	  plumber  	  = require('gulp-plumber'),
 	  uglify   	  = require('gulp-uglify'),
-	  concat	  = require('gulp-concat'),
-	  pipe		  = require('gulp-pipe'), 
+	  concat	    = require('gulp-concat'),
+	  pipe		    = require('gulp-pipe'),
 	  browserSync = require('browser-sync').create();
 
 //vendor task copy third party libraries from /node_modules into /vendor
@@ -14,6 +14,9 @@ gulp.task('vendor',function(){
   gulp.src(['./node_modules/jquery/dist/**/*', ]).pipe(gulp.dest('./vendor/jquery'));
   gulp.src(['./node_modules/animate.css/**/*', ]).pipe(gulp.dest('./vendor/animate'));
   gulp.src(['./node_modules/gsap/src/minified/**/*/',]).pipe(gulp.dest('./vendor/gsap'));
+  gulp.src(['./node_modules/scrollmagic/scrollmagic/minified/**/*']).pipe(gulp.dest('./vendor/scrollmagic'));
+	gulp.src(['./node_modules/nicescroll/dist/**/*/',]).pipe(gulp.dest('./vendor/nicescroll'));
+  // gulp.src(['./node_modules/']).pipe(gulp.dest('./vendor/'));
 });
 
 
@@ -60,7 +63,7 @@ gulp.task('css:minify', ['css:compile'], function() {
 });
 
 
-//Function Watching JS 
+//Function Watching JS
 gulp.task('watch-js',function(){
 	console.log('watching files JS !!');
 	gulp.watch('dist/js');
@@ -68,11 +71,9 @@ gulp.task('watch-js',function(){
 
 });
 
-//Function Watching JS 
+//Function Watching JS
 gulp.task('watch-style',function(){
 	console.log('watching files Style !!');
-
-
 });
 
 gulp.task('browsersync',function(){
