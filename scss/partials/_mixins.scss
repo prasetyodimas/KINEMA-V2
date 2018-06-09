@@ -1,5 +1,5 @@
 // =======================
-//  BORDER RADIUS 
+//  BORDER RADIUS
 // =======================
 @mixin border-radius($value) {
   -webkit-border-radius: $value;
@@ -14,11 +14,11 @@
 //======================
 @mixin linear-gradient($fromColor, $toColor) {
   background-color: $toColor; /* Fallback Color */
-  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); 
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor));
   background-image: -webkit-linear-gradient(top, $fromColor, $toColor);
-  background-image: -moz-linear-gradient(top, $fromColor, $toColor); 
-  background-image: -ms-linear-gradient(top, $fromColor, $toColor); 
-  background-image: -o-linear-gradient(top, $fromColor, $toColor); 
+  background-image: -moz-linear-gradient(top, $fromColor, $toColor);
+  background-image: -ms-linear-gradient(top, $fromColor, $toColor);
+  background-image: -o-linear-gradient(top, $fromColor, $toColor);
   background-image: linear-gradient(top, $fromColor, $toColor);
 }
 
@@ -42,7 +42,7 @@
 }
 
 //====================
-// TRANSITION  
+// TRANSITION
 //====================
 @mixin transition($transition-property, $transition-time, $method) {
   -webkit-transition: $transition-property $transition-time $method;
@@ -83,7 +83,7 @@
 }
 
 //=======================
-		//OPACITY  
+		//OPACITY
 //=======================
 @mixin opacity($opacity) {
   opacity: $opacity / 100;
@@ -91,7 +91,7 @@
 }
 
 //=======================
-		//BOX SIZING 
+		//BOX SIZING
 //=======================
 @mixin box-sizing($string){
   -webkit-box-sizing: $string;
@@ -101,12 +101,12 @@
 }
 
 //========================
-		//BOX SHADOW  
+		//BOX SHADOW
 //========================
 @mixin box-shadow($off-y, $off-x, $blur, $color){
-  -moz-box-shadow: $off-y $off-x $blur $color; 
-  -webkit-box-shadow: $off-y $off-x $blur $color; 
-  -o-box-shadow: $off-y $off-x $blur $color; 
+  -moz-box-shadow: $off-y $off-x $blur $color;
+  -webkit-box-shadow: $off-y $off-x $blur $color;
+  -o-box-shadow: $off-y $off-x $blur $color;
   box-shadow: $off-y $off-x $blur $color;
 }
 
@@ -136,7 +136,7 @@
 // brightness     ex: filter: brightness(15%);
 // contrast       ex: filter: contrast(200%);
 // blur           ex: filter: blur(2px);
-@mixin filter($filter-type,$filter-amount) { 
+@mixin filter($filter-type,$filter-amount) {
   -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
   -moz-filter: $filter-type+unquote('(#{$filter-amount})');
   -ms-filter: $filter-type+unquote('(#{$filter-amount})');
@@ -159,3 +159,27 @@
   }
 }
 
+// ======================
+//  MEDIA QUERY
+// ======================
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: 767px) { @content; }
+  }
+
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}

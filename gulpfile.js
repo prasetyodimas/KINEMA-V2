@@ -1,10 +1,11 @@
-const gulp     	  = require('gulp'),
-	    sass    	  = require('gulp-sass'),
+const gulp     	    = require('gulp'),
+	    sass        = require('gulp-sass'),
 	    cleanCSS    = require('gulp-clean-css'),
-	    plumber  	  = require('gulp-plumber'),
-	    uglify   	  = require('gulp-uglify'),
+	    plumber     = require('gulp-plumber'),
+	    uglify      = require('gulp-uglify'),
 	    concat	    = require('gulp-concat'),
-	    pipe		    = require('gulp-pipe'),
+	    rename      = require("gulp-rename"),
+	    pipe	    = require('gulp-pipe'),
 	    browserSync = require('browser-sync').create();
 
 //vendor task copy third party libraries from /node_modules into /vendor
@@ -60,7 +61,7 @@ gulp.task('css:compile', function(){
 // Minify CSS !
 gulp.task('css:minify', ['css:compile'], function() {
   return gulp.src([
-      './dist/css/*.css',
+      './frontend/dist/css/*.css',
       '!./frontend/dist/css/*.min.css'
     ])
     .pipe(cleanCSS())
@@ -85,7 +86,7 @@ gulp.task('browsersync',function(){
 });
 
 gulp.task('development',['browsersync'], function(){
-	  gulp.watch('./*.php',browserSync.reload);
+	  gulp.watch('./*.html',browserSync.reload);
 		gulp.watch('./scss/*.scss', ['css']);
   	gulp.watch('./frontend/asset/js/*.js', ['js']);
 });

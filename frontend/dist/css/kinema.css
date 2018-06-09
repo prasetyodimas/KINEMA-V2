@@ -1563,7 +1563,26 @@ p {
   }
 }
 
-@media (min-width: 200px) and (max-width: 600px) {
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 3.5s !important;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.main-section-homepage .main-svg__areas .svg-logobar {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 91em;
+  top: -19em;
+}
+
+@media (max-width: 767px) {
+  .main-section-homepage .main-svg__areas .svg-logobar {
+    height: auto;
+    top: 0 !important;
+  }
   .main-section-aboutme .space-testiaboutme {
     margin-top: 10px !important;
     padding-left: 0px !important;
@@ -1581,22 +1600,43 @@ p {
   .m-t-100 {
     margin-top: 25px;
   }
+  .media-soial .space-testisocials ul.ul-outersocial {
+    padding: 0px 6em !important;
+  }
+  .media-soial h2.follow-us {
+    font-size: 24px;
+  }
+  .media-soial .address h2.branding-textkinemas {
+    font-size: 24px;
+  }
+  .video-barplayer .kinema-videoplayers .container-barplayer {
+    padding: 0px !important;
+  }
+  .video-barplayer .kinema-videoplayers .container-barplayer .text-desc__video {
+    top: 10em !important;
+    padding: 2em;
+  }
+  .footer-kinema .resposive-heading {
+    font-size: 24px !important;
+  }
 }
 
-@media (min-width: 300px) and (max-width: 375px) {
-  .container-barplayer .text-desc__video {
-    top: 6em !important;
+@media (min-width: 768px) {
+  .media-soial .space-testisocials ul.ul-outersocial {
+    padding: 0px 8em !important;
   }
-  .footer-container .wrapper-contact-us .about-contact__us {
-    top: 10vh !important;
-    text-align: center;
+  .media-soial h2.follow-us {
+    font-size: 24px;
   }
-  .footer-container .wrapper-contact-us h1.text-uppercase {
-    font-size: 20px;
-    margin-top: 50px;
+  .media-soial .address h2.branding-textkinemas {
+    font-size: 24px;
+    padding: 4px;
   }
-  .footer-container .wrapper-contact-us h2.text-center {
-    font-size: 1.5em;
+}
+
+@media (min-width: 992px) {
+  .space-testisocials ul.ul-outersocial {
+    padding: 0px 13em !important;
   }
 }
 
